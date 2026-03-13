@@ -1,0 +1,42 @@
+services:
+
+  db:
+    image: postgres:16-alpine
+    container_name: travel_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       traveldb
+      POSTGRES_USER:     traveluser
+      POSTGRES_PASSWORD: travelpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U traveluser -d traveldb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: travel_backend
+    restart: unless-stopped
+    ports:
+      - "5001:80"
+    environment:
+      FLASK_APP:   app.py
+      DB_HOST:     db
+      DB_PORT:     5432
+      DB_NAME:     traveldb
+      DB_USER:     traveluser
+      DB_PASS:     travelpass
+      JWT_SECRET:  XHsk4VXecsdO3nE2XBn5HXU8kXI6p0o7r235UujpYXd
+      SECRET_KEY:  DcmL2nm9dCDa7I3IiuEFuyCVXLVf9UsGNSEqbcKi51g
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Destinations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">✈ Travel<span>destinations</span></a>
+  <ul class="navbar-nav" id="nav-auth-links"></ul>
+  <div id="nav-user-info"></div>
+</nav>
+
+<div id="loading-state" class="loading-overlay" style="margin-top:4rem">
+  <div class="spinner"></div>
+  <span>Loading destination…</span>
+</div>
+
+<div id="page-content" style="display:none">
+  <div class="detail-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">All Destinations</a>
+        <span>/</span>
+        <span id="breadcrumb-title">—</span>
+      </div>
+      <div class="detail-eyebrow" id="detail-eyebrow">📍 Location</div>
+      <h1 class="detail-title" id="detail-title">—</h1>
+      <div class="detail-meta" id="detail-meta"></div>
+    </div>
+  </div>
+
+  <div class="container detail-body">
+    <div id="created-banner" class="alert alert-success" style="display:none; margin-bottom:1.5rem">
+      ✓ Destination saved successfully!
+    </div>
+    <div class="detail-grid">
+      <div>
+        <p class="detail-description" id="detail-description"></p>
+      </div>
+      <div class="detail-sidebar">
+        <div class="detail-info-card">
+          <h4>Trip Details</h4>
+          <div class="detail-info-row"><span class="label">Location</span><span class="value" id="info-location">—</span></div>
+          <div class="detail-info-row"><span class="label">Country</span><span class="value" id="info-country">—</span></div>
+          <div class="detail-info-row"><span class="label">From</span><span class="value" id="info-date-from">—</span></div>
+          <div class="detail-info-row"><span class="label">To</span><span class="value" id="info-date-to">—</span></div>
+          <div class="detail-info-row"><span class="label">Author</span><span class="value" id="info-author">—</span></div>
+          <div class="detail-info-row"><span class="label">Added</span><span class="value" id="info-created">—</span></div>
+        </div>
+        <div class="detail-actions" id="owner-actions" style="display:none">
+          <a href="#" id="edit-btn" class="btn btn-primary">Edit Destination</a>
+          <button class="btn btn-danger" id="delete-btn">Delete Destination</button>
+        </div>
+        <div style="margin-top:1rem">
+          <a href="index.html" class="btn btn-ghost" style="width:100%;justify-content:center">← Back to All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="error-state" style="display:none">
+  <div class="empty-state" style="margin-top:4rem">
+    <h3>Destination Not Found</h3>
+    <p>This destination may have been deleted or does not exist.</p>
+    <a href="index.html" class="btn btn-primary">Back to List</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <div class="modal-header"><h3>🗑 Delete Destination?</h3></div>
+    <div class="modal-body">
+      Are you sure you want to permanently delete <strong id="delete-title-text"></strong>? This cannot be undone.
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost btn-sm" id="cancel-delete-btn">Cancel</button>
+      <button class="btn btn-danger btn-sm" id="confirm-delete-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="dist/detail.js"></script>
+</body>
+</html>

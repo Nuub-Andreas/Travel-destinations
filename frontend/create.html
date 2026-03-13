@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Destinations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">✈ Travel<span>destinations</span></a>
+  <ul class="navbar-nav" id="nav-auth-links"></ul>
+  <div id="nav-user-info"></div>
+</nav>
+
+<div class="container section">
+  <div class="form-card">
+    <div class="form-card-header">
+      <h2>New Destination</h2>
+      <p>Document a place you've visited or plan to visit</p>
+    </div>
+    <div class="form-body">
+      <div id="form-alert" class="alert alert-error"></div>
+      <div class="form-group">
+        <label for="title">Title <span class="required">*</span></label>
+        <input type="text" id="title" class="form-control" placeholder="e.g. Two Weeks in Kyoto" maxlength="200" />
+        <div class="field-error" id="title-error"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="location">City / Location</label>
+          <input type="text" id="location" class="form-control" placeholder="e.g. Kyoto" />
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" id="country" class="form-control" placeholder="e.g. Japan" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date_from">Date From</label>
+          <input type="date" id="date_from" class="form-control" />
+          <div class="field-error" id="date_from-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="date_to">Date To</label>
+          <input type="date" id="date_to" class="form-control" />
+          <div class="field-error" id="date_to-error"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" placeholder="Describe your experience, highlights, tips…" rows="5" maxlength="5000"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" id="submit-btn">Save Destination</button>
+        <a href="index.html" class="btn btn-ghost">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="dist/create.js"></script>
+</body>
+</html>

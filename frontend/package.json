@@ -1,0 +1,12 @@
+{
+  "name": "travel-destinations-frontend",
+  "version": "1.0.0",
+  "description": "Travel destinations frontend",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,4 @@
+Flask==3.1.2
+icecream==2.1.10
+psycopg2-binary==2.9.10
+flask-session==0.8.0
